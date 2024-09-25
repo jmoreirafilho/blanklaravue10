@@ -16,3 +16,13 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/{url}', function () {
+    return view('welcome');
+});
+
+use App\Http\Controllers\MenuController;
+
+Route::controller(MenuController::class)->group(function () {
+    Route::post('/menu', 'menu');
+});
